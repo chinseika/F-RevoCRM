@@ -27,7 +27,7 @@ class Vtiger_Text_UIType extends Vtiger_Base_UIType {
 	}
 
 	/**
-	 * テキスト中のURLをリンク表示に変換する（既存タグ内は対象外、全角文字・閉じ括弧はURLに含めない） #1773
+	 * テキスト中のURLをリンク表示に変換する
 	 * @param <String> $value
 	 * @return <String>
 	 */
@@ -41,7 +41,7 @@ class Vtiger_Text_UIType extends Vtiger_Base_UIType {
 			$trail = substr($matches[1], strlen($url));
 			return '<a class="urlField cursorPointer" href="'.$url.'" target="_blank">'.$url.'</a>'.$trail;
 		}, $value);
-		// 不正なUTF-8バイト列を含む値ではnullが返るため、元の値をそのまま表示する
+		// 不正なUTF-8バイト列ではnullが返るため元の値を表示する
 		return $result === null ? $value : $result;
 	}
     
